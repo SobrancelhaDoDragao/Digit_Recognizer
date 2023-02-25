@@ -1,0 +1,126 @@
+<template>
+
+     <div class="containerQuadro" ref="containerQuadro" >
+
+        <canvas ref="canvas" id="quadro"></canvas>
+                 
+        </div>
+
+        <router-link @click.prevent="salvarCanvas" class='BotaoComum' to="">Pronto</router-link>
+        
+</template>
+
+
+<script>
+
+    export default {
+
+        methods:{
+
+            async salvarCanvas() {
+            
+            // Obtém o elemento canvas
+            const canvas = this.$refs.canvas;
+            
+            // Obtém o objeto de contexto do canvas
+            const ctx = canvas.getContext('2d');
+             
+            
+            let DataUrl = canvas.toDataURL('image/png')
+
+            const csrfToken = await this.GetToken();
+            
+            // Enviar o DataURL(Binário da imagem) para o servidor usando Fetch    
+            const reponse = await fetch('http://127.0.0.1:8000/PredictDigit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken,
+                },
+                body: JSON.stringify({'data_url': DataUrl}),
+            });
+            //Pegando resposta do modelo de IA
+            var dado = await reponse.json()
+            //Redirect
+            this.$router.push(`/PredictDigit/${dado.digit}`)
+ 
+        },
+
+        async GetToken(){
+
+            const response = await fetch('http://127.0.0.1:8000/get_csrf');
+             
+            let dado = await response.json();
+
+            let csrfToken = await dado.csrf_token;
+
+            return csrfToken;
+
+        }
+    },
+        mounted() {
+
+            let penSize = 5
+            let isDrawing;
+            let x;
+            let y;
+            
+            const canvas = this.$refs.canvas;
+            const c = canvas.getContext("2d");
+            
+            const sizeCanvas = () => {
+                const container = this.$refs.containerQuadro;
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+            }
+
+            sizeCanvas();
+            
+            addEventListener("resize", sizeCanvas); 
+            
+            canvas.addEventListener("mousedown",(e)=>{
+                isDrawing = true;
+                x = e.offsetX;
+                y = e.offsetY;
+            });
+            
+            canvas.addEventListener("mouseup",()=>{
+            isDrawing = false;
+            x = undefined;
+            y = undefined;
+            })
+            
+            canvas.addEventListener("mousemove",(event)=>{
+            draw(event.offsetX,event.offsetY)
+            })
+            
+            c.fillStyle = "black"
+            c.strokeStyle = c.fillStyle
+            
+            function draw(x2,y2){
+            if(isDrawing){
+                c.beginPath();
+                c.arc(x2,y2,penSize,0,Math.PI * 2);
+                c.closePath();
+                c.fill();
+            
+                //draw line
+                drawLine(x,y,x2,y2);
+            }
+            
+            x = x2;
+            y = y2;
+            }
+            
+            function drawLine(x1,y1,x2,y2){
+            c.beginPath();
+            c.moveTo(x1,y1);
+            c.lineTo(x2,y2);
+            c.strokeStyle = c.fillStyle;
+            c.lineWidth = penSize * 2;
+            c.stroke();
+            }
+        }
+    }
+
+</script>

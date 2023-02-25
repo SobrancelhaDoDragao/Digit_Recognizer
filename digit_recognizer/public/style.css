@@ -1,0 +1,243 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /*========== Colors ==========*/
+
+
+    /*========== Font ==========*/
+    --body-font: 'Roboto Mono', monospace;;
+    background-color: aliceblue;
+    /*========== Font Size ==========*/
+
+    --big-font-size: 3.5rem;
+    --mediam-font-size:1.5rem;
+    --regular-font-size:1rem;
+
+    /*========== Font weight ==========*/
+    --font-light: 300;
+    --font-regular: 400;
+    --font-bold:700;
+}
+
+
+body{
+    background-color:rgb(90, 205, 62);
+    font-family: var(--body-font);
+    min-height: 100vh;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    height: 100%;
+}
+
+.TituloPrincipal{
+    text-align: center;
+    font-weight: var(--font-bold);
+    font-size: var(--big-font-size);
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+.containerQuadro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    height: 60vh;
+}
+
+/*
+#quadro{
+    background-color: rgb(217,217,217);
+    width: 50vw;
+    height: 100%;
+    flex-grow: 2;
+    border-radius: 4rem;
+    border: solid .2rem black;
+    margin-top: 1rem;
+}
+*/
+
+#quadro{
+    background-color: rgb(217,217,217);
+    border-radius: 4rem;
+    border: solid .2rem black;
+}
+
+.explicao{
+    text-align: center;
+    font-size: var(--mediam-font-size);
+    color: black;
+    background-color: white;
+    padding: .5rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: .5rem;
+}
+
+.BotaoComum{
+    display: flex;
+    align-items : center;
+    justify-content : center;
+    font-size:var(--font-regular) ;
+    font-weight: var(--font-bold);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    width: 8rem;
+    height: 2rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.VoltaDesenharButton{
+    font-size:var(--font-regular) ;
+    font-weight: var(--font-bold);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 10rem;
+    height: 10vh;
+    margin-top: .5rem;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    color: black;
+    display: flex;
+    align-items : center;
+    justify-content : center;
+}
+
+.container-digit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 70vh;
+    border: .5rem solid white; 
+    border-radius: 1rem;
+}
+
+.Digit-Prediction{
+    font-size: 15rem;
+}
+
+.text-digit{
+    font-size: var(--mediam-font-size);
+    text-align: center;
+    color: black;
+    background-color: white;
+    padding: .5rem;
+    width: 90%;
+}
+
+footer{
+    font-size: var(--regular-font-size);
+    font-weight: var(--font-bold);
+    text-align: center;
+    margin-top: .5rem;
+}
+
+
+
+/*========== Reposividade ============================================*/
+
+/*========== medium divices ==========*/
+
+
+@media screen and (max-width: 1000px){
+    :root {
+        /*========== Font Size ==========*/
+        --big-font-size: 2.5rem;
+        --mediam-font-size:1.5rem;
+        --regular-font-size:1rem;
+      }
+
+    .container{
+        width: 80%;
+    }
+
+    .containerQuadro{
+        width: 65vw;
+    }
+
+    .container-digit{
+        width: 80vw;
+        height: 70vh;
+    }
+
+    .text-digit{
+        padding: .2rem;
+        width: 90%;
+    }
+
+}
+
+/*========== Mobile ==========*/
+@media screen and (max-width: 550px){
+    :root {
+        /*========== Font Size ==========*/
+        --big-font-size: 2rem;
+        --mediam-font-size:1rem;
+        --regular-font-size:1rem;
+    }
+
+      /*
+    Distruibuição dos espaços na horizontal
+
+    Titulo = 5%
+    Explicação = 20%
+    Quadro de desenho (Canvas) = 70%
+    footer = 5%
+    
+    */
+
+    .container{
+        width: 100%;
+    }
+
+    .containerQuadro{
+        width: 90vw;
+        height: 60vh;
+    }
+
+    .container-digit{
+        width: 90vw;
+        height: 70vh;
+    }
+    
+    footer{
+        margin-top: .2rem;
+        margin-bottom: .2rem;
+    }
+         
+    h1{
+        margin-bottom: 0rem;
+        margin-top: .5rem;
+    }
+
+    .BotaoComum{
+        margin-top: 1rem; 
+    }
+
+}
+
+
+
