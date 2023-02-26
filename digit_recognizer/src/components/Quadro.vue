@@ -5,20 +5,33 @@
         <canvas ref="canvas" id="quadro"></canvas>
                  
         </div>
-
+        
         <router-link @click.prevent="salvarCanvas" class='BotaoComum' to="">Pronto</router-link>
+        <Spinner :start="spin" />
         
 </template>
 
 
 <script>
+import Spinner from '@/components/Spinner.vue'
 
     export default {
+        name: 'Quadro',
+        components: {
+            Spinner        
+        },
+
+        data(){
+            return{
+                spin:false,
+            }
+        },
 
         methods:{
 
             async salvarCanvas() {
-            
+            //Ativando o louder
+            this.spin = true
             // Obtém o elemento canvas
             const canvas = this.$refs.canvas;
             
@@ -41,6 +54,9 @@
             });
             //Pegando resposta do modelo de IA
             var dado = await reponse.json()
+
+            //Desativando o louder
+            this.spin = false
             //Redirect
             this.$router.push(`/PredictDigit/${dado.digit}`)
  
@@ -67,16 +83,16 @@
             
             const canvas = this.$refs.canvas;
             const c = canvas.getContext("2d");
-            
+            const container = this.$refs.containerQuadro;
+
             const sizeCanvas = () => {
-                const container = this.$refs.containerQuadro;
                 canvas.width = container.clientWidth;
                 canvas.height = container.clientHeight;
             }
 
             sizeCanvas();
             
-            addEventListener("resize", sizeCanvas); 
+            window.addEventListener('resize',sizeCanvas);
             
             canvas.addEventListener("mousedown",(e)=>{
                 isDrawing = true;
@@ -120,7 +136,16 @@
             c.lineWidth = penSize * 2;
             c.stroke();
             }
+        },
+
+        beforeUnmount(){
+            //Removendo todos os linstener para poupar memoria
+            window.removeEventListener('resize', this.sizeCanvas);
+            window.removeEventListener('mousedown', this.canvas);
+            window.removeEventListener('mouseup', this.canvas);
+            window.removeEventListener('mousemove', this.canvas);
         }
+        
     }
 
 </script>
