@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 def RGBAConverter(imageColored):
     """
-    Função que converte pixels transparente em pretos e pretos em brancos
+    Função que converte pixels transparente em brancos
     """
 
     w, h = imageColored.size
@@ -27,10 +27,10 @@ def RGBAConverter(imageColored):
             #Inverter valores
             # Se possuir tranparencia, então deverá ser preto
             if pxl[3]:
-                imagePretoBranco.putpixel((x,y),(255,255,255))
+                imagePretoBranco.putpixel((x,y),(0,0,0))
             # Se não então branco
             else:
-                imagePretoBranco.putpixel((x,y),(0,0,0))
+                imagePretoBranco.putpixel((x,y),(255,255,255))
 
     return imagePretoBranco
 
@@ -49,7 +49,7 @@ def RemoverEspacosBrancos(imageColored):
 
       pxl = imageColored.getpixel((x,y))
 
-      if pxl == (0,0,0):
+      if pxl == (255,255,255):
         colunaTotalmenteBranca += 1
         if colunaTotalmenteBranca == h:
 
@@ -98,14 +98,22 @@ def PredictDigit(request):
      
         imagem = RGBAConverter(img_rgba)
         imagem = RemoverEspacosBrancos(imagem)
-
         # Preparando os dados para o modelo
-        # Converte a imagem para escala de cinza e redimensiona para 28x28 pixels
-        # .convert('L')
-        imagem = imagem.resize((28, 28)).convert('L')
 
+        # redimensiona para 28x28 pixels
+        imagem = imagem.resize((28, 28))
+        # Converte a imagem para escala de cinza
+        imagem = imagem.convert('L')
+        
         # Converte a imagem em um array unidimensional
-        img_array = np.array(imagem).reshape(1,784)
+        img_array = np.array(imagem)
+        # Deixado o fundo preto e o digito branco, o scitlearn funciona melhor assim
+        img_array = np.invert(img_array)
+
+        # Convertendo no formato adequado
+        img_array = img_array.reshape(1,784)
+        
+        print(img_array)
         # Criando lista com o nome dos pixels
         lista = [f'pixel{n}' for n in range(784)]
         # Salvando em um dataframe
@@ -114,8 +122,8 @@ def PredictDigit(request):
         # Carregando modelo treinado
         rf_model = joblib.load('random_forest_model.joblib')
         # usar o modelo para fazer previsões
-        prediction = rf_model.predict(data)
-
+        prediction = rf_model.predict(data) 
+     
         print(f"Previsão do modelo: {prediction}")
 
         data = {
