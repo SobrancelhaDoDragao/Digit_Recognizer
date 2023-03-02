@@ -14,6 +14,11 @@ depois de desenhado retornar por meio de um algoritmo de IA o numero que foi des
 Random forest explicar 
 
 <h3>Tecnologias usadas</h3>
+- Python
+- vue.js
+- javascript
+
+arquitetura 
 
 explicar sobre a api
 
