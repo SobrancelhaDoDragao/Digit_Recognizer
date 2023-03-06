@@ -4,7 +4,7 @@
     <!-- Aqui onde será renderizado as páginas -->
     <router-view/>
 
-    <footer>Desenvolvido por Eudson Durães, veja o código aqui</footer>
+    <footer>Desenvolvido por <a href="https://github.com/SobrancelhaDoDragao" target="_blank" >Eudson Durães</a></footer>
    
 </template>
 

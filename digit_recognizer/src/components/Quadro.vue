@@ -1,5 +1,5 @@
 <template>
-
+    
      <div class="containerQuadro" ref="containerQuadro" >
 
         <canvas ref="canvas" id="quadro"></canvas>
@@ -7,6 +7,8 @@
         </div>
         
         <router-link @click.prevent="salvarCanvas" class='BotaoComum' to="">Pronto</router-link>
+
+       
         <Spinner :start="spin" />
         
 </template>
