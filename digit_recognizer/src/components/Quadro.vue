@@ -1,16 +1,16 @@
 <template>
-    
-     <div class="containerQuadro" ref="containerQuadro" >
+   
+        <div class="containerQuadro" ref="containerQuadro" >
 
-        <canvas ref="canvas" id="quadro"></canvas>
-                 
+            <canvas ref="canvas" id="quadro"></canvas>
+                    
         </div>
-        
+            
         <router-link @click.prevent="salvarCanvas" class='BotaoComum' to="">Pronto</router-link>
 
-       
-        <Spinner :start="spin" />
         
+        <Spinner :start="spin" />
+      
 </template>
 
 
@@ -43,14 +43,11 @@ import Spinner from '@/components/Spinner.vue'
             
             let DataUrl = canvas.toDataURL('image/png')
 
-            const csrfToken = await this.GetToken();
-            
             // Enviar o DataURL(Binário da imagem) para o servidor usando Fetch    
             const reponse = await fetch('http://127.0.0.1:8000/PredictDigit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': csrfToken,
                 },
                 body: JSON.stringify({'data_url': DataUrl}),
             });

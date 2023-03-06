@@ -1,9 +1,11 @@
 <template>
 
+<transition name="slide" mode="out-in">
     <div class="spin-conteiner" v-if="start">
 
             <div class="lds-dual-ring"><p class="louderMensagem">Carregando</p></div>
     </div>
+</transition>
 
 </template>
 
@@ -14,11 +16,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        z-index: 1;
+        z-index: 20;
         width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.80);
+        height: 150%;
+        background-color: rgba(255, 255, 255, .50);
         position: fixed;
     }
     .lds-dual-ring {
