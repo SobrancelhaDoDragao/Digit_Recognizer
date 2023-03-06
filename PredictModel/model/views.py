@@ -61,10 +61,36 @@ def RemoverEspacosBrancos(imageColored):
 
   primeiroValor = listaDeColunasComPixel[0]
   ultimoValor = listaDeColunasComPixel[-1]
-  
-  # Primeiro (0) depois o Ultimo (h) (178,0,452,h)
-  img_cortada = imageColored.crop((primeiroValor - 5,0,ultimoValor + 5,h))
+   
 
+  listaDeLinhasVazias = []
+  listaDeLinhasComPixel = []
+
+  for x in range(h):
+    LinhaTotalmenteBranca = 0
+    for y in range(w):
+      pxl = imageColored.getpixel((y,x))
+        
+      if pxl == (255,255,255):
+        LinhaTotalmenteBranca += 1
+        if LinhaTotalmenteBranca == w:
+          listaDeLinhasVazias.append(x)
+      else:
+          listaDeLinhasComPixel.append(x)
+       
+  
+  primeiroValorHorizontal = listaDeLinhasComPixel[0]
+  ultimoValorHorizontal = listaDeLinhasComPixel[-1]
+    
+  # Para cortar uma imagem é preciso fornecer as coordenadas de um rentângulo
+  # (left,top,right,bottom)
+  left = primeiroValor
+  top = primeiroValorHorizontal
+  right = ultimoValor
+  bottom = ultimoValorHorizontal
+  # Somando + 5 subtraindo - 5 para ter uma margem do numero até a borda 
+  img_cortada = imageColored.crop((left-5,top-5,right+5,bottom+5))
+    
   return img_cortada
 
 
@@ -83,7 +109,7 @@ def PredictDigit(request):
         body = json.loads(body_unicode)
         # Salvando dados
         data_url = body.get('data_url')
-        
+
         # Removendo informções iniciais
         data_url = data_url.split(',')[1]
         # Decodificando
@@ -99,7 +125,7 @@ def PredictDigit(request):
         imagem = RGBAConverter(img_rgba)
         imagem = RemoverEspacosBrancos(imagem)
         # Preparando os dados para o modelo
-
+        imagem.save('teste.png')
         # redimensiona para 28x28 pixels
         imagem = imagem.resize((28, 28))
         # Converte a imagem para escala de cinza
@@ -113,7 +139,6 @@ def PredictDigit(request):
         # Convertendo no formato adequado
         img_array = img_array.reshape(1,784)
         
-        print(img_array)
         # Criando lista com o nome dos pixels
         lista = [f'pixel{n}' for n in range(784)]
         # Salvando em um dataframe
@@ -132,33 +157,6 @@ def PredictDigit(request):
         
         return JsonResponse(data)
 
-    else:
-
-        return JsonResponse({'erro': False})
-
-@csrf_exempt
-def SalvarImagem(request):
-
-    if request.method == 'POST':
-        
-        # Recebendo os dados em json e convertendo
-        body_unicode = request.body.decode('utf-8')
-        # Convertendo uma string json em dicionario python
-        body = json.loads(body_unicode)
-        # Salvando dados
-        data_url = body.get('data_url')
-        
-        # Removendo informções iniciais
-        data_url = data_url.split(',')[1]
-        # Decodificando
-        img_bytes = base64.b64decode(data_url)
-        
-        # Criando a imagem
-        with open('imagem.png', 'wb') as file:
-            file.write(img_bytes)
-
-        return JsonResponse({'success': True})
-    
     else:
 
         return JsonResponse({'erro': False})
