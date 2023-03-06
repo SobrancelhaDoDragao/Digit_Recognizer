@@ -1,14 +1,22 @@
 <h1 align="center">Digit_Recognizer</h1>
 
-<h3 align="center">Implementação do desafio digit recognizer em um aplicação web</h3>
+<h3 align="center">Implementação do desafio digit recognizer em uma aplicação web</h3>
 <h5 align="center">Status: em progresso</h5>
 
-<h3>Sobre o projeto</h3>
-<p>Um site que foi feito para desenhar numeros 0-9 e depois o algoritmo treinado de IA irá retornar qual numero foi desenhado.</p>
 
-<p>Depois de ter conseguido completar o desafio do <a href="https://www.kaggle.com/competitions/digit-recognizer">
-digit recognizer mnist</a>, eu queria testar na prática o algortimo de IA. Então usei meus conhecimentos em desenvolvimento web para criar um site que tenha uma area de desenho para poder desenhar os digitos manualmente e 
-depois de desenhado retornar por meio de um algoritmo de IA o numero que foi desenhado.</p>
+## Sobre o projeto
+
+<p>Este é um projeto que tem como objetivo testar na prática o algoritmo de reconhecimento de dígitos desenvolvido durante o desafio do Digit Recognizer MNIST.</p>
+
+<p>A aplicação web consiste em uma área de desenho onde é possível desenhar os dígitos de 0 a 9 manualmente. Em seguida, o algoritmo de IA treinado irá processar o desenho e retornar qual número foi desenhado.</p>
+
+## Como Funciona
+
+1. Acesse o site e selecione a área de desenho.
+2. Desenhe o dígito que deseja reconhecer.
+3. Clique em "Processar" para que o algoritmo de IA analise o desenho.
+4. O número reconhecido será exibido na tela.
+
 
 <h3>Métodos usados</h3>
 Random forest explicar 
