@@ -39,9 +39,18 @@ def PredictDigit(request):
         img_rgba = Image.open('imagem.png')
      
         imagem = RGBAConverter(img_rgba)
-        imagem = RemoverEspacosBrancos(imagem)
+        
+        # Caso o quadro esteja vazio
+        try:
+            imagem = RemoverEspacosBrancos(imagem)
+        except:
+            data = {
+            'digit':'Error',
+            }
+            return JsonResponse(data)
+
         # Preparando os dados para o modelo
-        imagem.save('teste.png')
+    
         # redimensiona para 28x28 pixels
         imagem = imagem.resize((28, 28))
         # Converte a imagem para escala de cinza
@@ -56,6 +65,7 @@ def PredictDigit(request):
         img_array = img_array.reshape(1,784)
         
         # Criando lista com o nome dos pixels
+        # Talves eu tire esse datafram Pandas, não há necessidade 
         lista = [f'pixel{n}' for n in range(784)]
         # Salvando em um dataframe
         data = pd.DataFrame(img_array, index=[0], columns=lista)
