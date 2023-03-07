@@ -25,13 +25,13 @@ A aplicação web consiste em uma área de desenho onde é possível desenhar os
 
 ## Tecnologias usadas
 
-- Back-end
+- **Back-end**
    - Python
    - Django
    - Scikit learn
    - Pandas
    - Numpy
-- Front-end
+- **Front-end**
   - Vue.js
   - Javascript
   - Html
