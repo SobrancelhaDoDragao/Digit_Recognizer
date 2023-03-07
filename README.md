@@ -1,7 +1,12 @@
 <h1 align="center">Digit_Recognizer</h1>
 
 <h3 align="center">Implementação do desafio digit recognizer em uma aplicação web</h3>
-<h5 align="center">Status: em progresso</h5>
+
+<div align="center">
+<img width="7%" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" /><img width="7%" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg" /><img width="7%" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg" />
+</div>       
+                   
+<h4 align="center">Status: em progresso</h4>
 
 
 ## Sobre o projeto
