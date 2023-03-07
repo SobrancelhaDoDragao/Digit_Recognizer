@@ -51,4 +51,4 @@ Canvas vue.js manda em json para o django api, python pré processamento, predic
 
 ## Licença
 
-The scripts in this project are released under the [MIT License](./LICENSE.md) 
+The scripts in this project are released under the [MIT License](.LICENSE.md) 
