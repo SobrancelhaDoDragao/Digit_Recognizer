@@ -52,13 +52,20 @@ import Spinner from '@/components/Spinner.vue'
                 body: JSON.stringify({'data_url': DataUrl}),
             });
             //Pegando resposta do modelo de IA
-            var dado = await reponse.json()
+            var dado = await reponse.json();
 
             //Desativando o louder
-            this.spin = false
+            this.spin = false;
+
+            //Quadro não foi desenhado
+            if(dado.digit == 'Error'){
+               alert("O Quadro não foi desenhado");
+            }
+            else{
             //Redirect
-            this.$router.push(`/PredictDigit/${dado.digit}`)
- 
+            this.$router.push(`/PredictDigit/${dado.digit}`);
+            }
+            
         },
 
         async GetToken(){

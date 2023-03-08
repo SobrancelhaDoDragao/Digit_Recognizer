@@ -3,6 +3,7 @@ from django.http import JsonResponse
 import base64
 import json
 from PIL import Image
+from io import BytesIO
 import pandas as pd
 import numpy as np
 import joblib
@@ -31,13 +32,9 @@ def PredictDigit(request):
         # Decodificando
         img_bytes = base64.b64decode(data_url)
         
-        # Criando a imagem
-        with open('imagem.png', 'wb') as file:
-            file.write(img_bytes)
-        
         # Abrir a imagem RGBA
-        img_rgba = Image.open('imagem.png')
-     
+        img_rgba = Image.open(BytesIO(img_bytes))
+        
         imagem = RGBAConverter(img_rgba)
         
         # Caso o quadro esteja vazio
@@ -48,7 +45,7 @@ def PredictDigit(request):
             'digit':'Error',
             }
             return JsonResponse(data)
-
+        
         # Preparando os dados para o modelo
     
         # redimensiona para 28x28 pixels

@@ -1,6 +1,6 @@
 <template>
     <div class="animacaoDiv">
-        <p class="explicao">Desenhe um numero de apenas um digito e clique em “pronto” e o algoritmo de IA irá dizer qual numero é.</p>     
+        <p class="explicao">Desenhe um número de <b>0</b> a <b>9</b>, a inteligência artificial tentará reconhecer o numero desenhado.</p>     
         <Quadro/>
     </div>
 </template>
