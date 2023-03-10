@@ -139,6 +139,8 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
+STATICFILES_DIRS =[BASE_DIR,"model/static"]
+
 STATIC_URL = 'static/'
 
 # Default primary key field type
