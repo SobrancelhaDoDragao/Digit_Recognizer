@@ -47,7 +47,7 @@ def PredictDigit(request):
             return JsonResponse(data)
         
         # Preparando os dados para o modelo
-    
+        
         # redimensiona para 28x28 pixels
         imagem = imagem.resize((28, 28))
         # Converte a imagem para escala de cinza
