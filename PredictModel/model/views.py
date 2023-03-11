@@ -12,7 +12,12 @@ from django.views.decorators.csrf import csrf_exempt
 from .pre_processamento import *
 
 def index(request):
-    return render(request,'index.html')
+    from pathlib import Path
+
+    # Build paths inside the project like this: BASE_DIR / 'subdir'.
+    BASE_DIR = Path(__file__).resolve().parent.parent
+
+    return render(request,'index.html',{'teste':BASE_DIR})
 
 @csrf_exempt
 def PredictDigit(request):
