@@ -14,3 +14,4 @@ scipy==1.10.1
 six==1.16.0
 sqlparse==0.4.3
 threadpoolctl==3.1.0
+whitenoise==6.4.0
