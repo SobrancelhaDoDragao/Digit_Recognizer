@@ -7,8 +7,9 @@
 <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg" />
   
 </div>       
-                   
-<h4 align="center">Status: em progresso</h4>
+               
+<h4 align="center">Status: em progresso<br>Veja o site online <a href="https://digitrecognizer.up.railway.app/">aqui</a></h4>
+
 
 ## Sobre o projeto
 
@@ -39,15 +40,15 @@ A aplicação web consiste em uma área de desenho onde é possível desenhar os
 
 ## Inteligência artificial
 
-Nesse projeto foi usado o algoritmo [random forest classifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) que foi treinado no conjunto de dados [mnist](http://yann.lecun.com/exdb/mnist/), ele obteve 96% de precisão no conjunto de teste, porém na prática obteve muito erros. Acredito que os erros ocorreram devido a diferença de formato dos digitos que o algoritmo recebe, tentarei melhorar o pré-processamento dos digitos.
+Para este projeto, eu utilizei o algoritmo [Random Forest Classifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html), treinado com os dados do conjunto [MNIST](http://yann.lecun.com/exdb/mnist/), que contém 70 mil dígitos manuscritos. O modelo alcançou uma precisão de 96% no conjunto de teste, no entanto, na prática, encontrei muitos erros. Acredito que isso ocorreu devido às diferenças de formato dos dígitos que o algoritmo recebeu. Para melhorar a precisão, planejo aprimorar o pré-processamento dos dígitos. 
 
-O motivo da escolha do algoritmo de IA
+Escolhi o Random Forest Classifier por sua simplicidade e eficácia. Considerei usar o TensorFlow em conjunto com o Keras, mas não foi possível devido à incompatibilidade da CPU do meu computador com o TensorFlow.
 
 ## Infraestrutura do projeto/fluxo
 
-Canvas vue.js manda em json para o django api, python pré processamento, predict retorno json
+Primeiramente, o usuário desenha um dígito de 0 a 9 no canvas e envia os dados. Durante o processo de envio, os dados do canvas são convertidos em formato de imagem usando a função <code>toDataURL()</code>. Em seguida, os dados são enviados para a view <code>PredictDigit()</code>, do Django. Essa função converte a imagem para o espaço de cores RGB, remove espaços em branco ao redor do dígito, redimensiona a imagem para 28 x 28 pixels, converte-a em escala de cinza e transforma-a em um array de números. Então, o modelo faz uma previsão com base nos dados do array e retorna um JSON com o dígito previsto.
 
-## Layout
+## Telas
 
 ## Licença
 
