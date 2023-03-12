@@ -1,4 +1,4 @@
-<h1 align="center">Digit_Recognizer</h1>
+<h1 align="center">Digit Recognizer</h1>
 
 <h3 align="center">Implementação do desafio digit recognizer em uma aplicação web</h3>
 
