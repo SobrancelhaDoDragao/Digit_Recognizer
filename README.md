@@ -29,7 +29,7 @@ A aplicação web consiste em uma área de desenho onde é possível desenhar os
 
 ## Como Funciona
 
-1. Acesse o site e selecione a área de desenho.
+1. Acesse o [site](https://digitrecognizer.up.railway.app/) e selecione a área de desenho.
 2. Desenhe o dígito que deseja reconhecer.
 3. Clique em "Pronto" para que o algoritmo de IA analise o desenho.
 4. O número reconhecido será exibido na tela.
