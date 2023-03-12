@@ -50,6 +50,8 @@ Primeiramente, o usuário desenha um dígito de 0 a 9 no canvas e envia os dados
 
 ## Telas
 
+## Instalar o projeto localmente
+
 ## Licença
 
 The scripts in this project are released under the [MIT License](./LICENSE.md) 
