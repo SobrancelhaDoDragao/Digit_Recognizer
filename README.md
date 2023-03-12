@@ -50,7 +50,17 @@ Primeiramente, o usuário desenha um dígito de 0 a 9 no canvas e envia os dados
 
 ## Telas
 
+### Tela de desenho
+
+<img width="60%" src="https://github.com/SobrancelhaDoDragao/Digit_Recognizer/blob/main/digitRecognizerPrint.png"  />
+
+### Tela do predict
+
+<img width="60%" src="https://github.com/SobrancelhaDoDragao/Digit_Recognizer/blob/main/DigitRecognizerPredictPrint.png" />
+
 ## Instalar o projeto localmente
+
+Em construção...
 
 ## Licença
 
