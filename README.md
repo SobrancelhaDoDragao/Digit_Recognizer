@@ -12,14 +12,14 @@
 
 ## Tópicos
 
-- [Sobre o projeto](#sobre-o-projeto)
-- [Como funciona](#como-funciona)
-- [Tecnologias usadas](#tecnologias-usadas)
-- [Inteligência artificial](#inteligência-artificial)
-- [Infraestrutura do projeto/fluxo](#infraestrutura-do-projetofluxo)
-- [Telas](#telas)
-- [Instalar o projeto localmente](#instalar-o-projeto-localmente)
-- [Licença](#licença)
+1. [Sobre o projeto](#sobre-o-projeto)
+2. [Como funciona](#como-funciona)
+3. [Tecnologias usadas](#tecnologias-usadas)
+4. [Inteligência artificial](#inteligência-artificial)
+5. [Infraestrutura do projeto/fluxo](#infraestrutura-do-projetofluxo)
+6. [Telas](#telas)
+7. [Instalar o projeto localmente](#instalar-o-projeto-localmente)
+8. [Licença](#licença)
 
 ## Sobre o projeto
 
