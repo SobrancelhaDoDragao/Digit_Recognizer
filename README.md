@@ -10,6 +10,16 @@
                
 <h4 align="center">Status: em progresso<br>Veja o site online <a href="https://digitrecognizer.up.railway.app/">aqui</a></h4>
 
+## Tópicos
+
+- [Sobre o projeto](#sobre-o-projeto)
+- [Como funciona](#como-funciona)
+- [Tecnologias usadas](#tecnologias-usadas)
+- [Inteligência artificial](#inteligência-artificial)
+- [Infraestrutura do projeto/fluxo](#infraestrutura-do-projetofluxo)
+- [Telas](#telas)
+- [Instalar o projeto localmente](#instalar-o-projeto-localmente)
+- [Licença](#licença)
 
 ## Sobre o projeto
 
