@@ -16,8 +16,6 @@
 
 </div>
 
-
-
 ## Tópicos
 
 1. [Sobre o projeto](#sobre-o-projeto)
@@ -66,8 +64,8 @@ Escolhi o Random Forest Classifier por sua simplicidade e eficácia. Considerei 
 
 ### Estrutura de pastas
 
-- [digit_recoginizer] Pasta onde estão os arquivos vue.js
-- [DjangoIA] Pasta onde estão os arquivos do django, aqui são administrados os arquivos estáticos gerados pelo vue.js. Aqui onde o projeto funciona.
+- digit_recognizer - Pasta onde estão os arquivos vue.js
+- DjangoIA - Pasta onde estão os arquivos do django, aqui são administrados os arquivos estáticos gerados pelo vue.js. Aqui onde o projeto funciona.
 
 ### Fluxo do programa
 
