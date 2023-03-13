@@ -7,11 +7,16 @@
 <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg" /> <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" />  <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />
           
 </div>       
-               
-<h4 align="center">Status: em progresso</h4>
+  
+<div align="center">
+
+<h4>Status: em progresso</h4>
+
+[![Deploy on railway](https://railway.app/button.svg)](https://digitrecognizer.up.railway.app/)
+
+</div>
 
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://digitrecognizer.up.railway.app/)
 
 ## Tópicos
 
