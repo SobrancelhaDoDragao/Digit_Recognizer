@@ -8,7 +8,10 @@
           
 </div>       
                
-<h4 align="center">Status: em progresso<br>Veja o site online <a href="https://digitrecognizer.up.railway.app/">aqui</a></h4>
+<h4 align="center">Status: em progresso</h4>
+
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ZweBXA)
 
 ## Tópicos
 
