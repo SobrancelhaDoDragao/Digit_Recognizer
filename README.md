@@ -7,8 +7,14 @@
 <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg" /> <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" />  <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />
           
 </div>       
-               
-<h4 align="center">Status: em progresso<br>Veja o site online <a href="https://digitrecognizer.up.railway.app/">aqui</a></h4>
+  
+<div align="center">
+
+<h4>Status: em progresso</h4>
+
+[![Deploy on railway](https://railway.app/button.svg)](https://digitrecognizer.up.railway.app/)
+
+</div>
 
 ## Tópicos
 
@@ -56,6 +62,13 @@ Escolhi o Random Forest Classifier por sua simplicidade e eficácia. Considerei 
 
 ## Infraestrutura do projeto/fluxo
 
+### Estrutura de pastas
+
+- digit_recognizer - Pasta onde estão os arquivos vue.js
+- DjangoIA - Pasta onde estão os arquivos do django, aqui são administrados os arquivos estáticos gerados pelo vue.js. Aqui onde o projeto funciona.
+
+### Fluxo do programa
+
 Primeiramente, o usuário desenha um dígito de 0 a 9 no canvas e envia os dados. Durante o processo de envio, os dados do canvas são convertidos em formato de imagem usando a função <code>toDataURL()</code>. Em seguida, os dados são enviados para a view <code>PredictDigit()</code>, do Django. Essa função converte a imagem para o espaço de cores RGB, remove espaços em branco ao redor do dígito, redimensiona a imagem para 28 x 28 pixels, converte-a em escala de cinza e transforma-a em um array de números. Então, o modelo faz uma previsão com base nos dados do array e retorna um JSON com o dígito previsto.
 
 ## Telas
@@ -72,15 +85,17 @@ Primeiramente, o usuário desenha um dígito de 0 a 9 no canvas e envia os dados
 
 ### Pré-requisitos
 
-- [Docker instalado](https://docs.docker.com/get-docker/)
+- [Python 3.8.10](https://www.python.org/downloads/)
+- [Venv](https://docs.python.org/pt-br/3/library/venv.html)
 
 ### Execute os seguintes comandos
 
 1. Baixe o repositório no seu computador
-2. Agora abra a pasta Digit_Recognizer pelo terminal
-3. Digite: <code>docker build --tag digit_recognizer</code> para criar a docker image
-4. Agora digite: <code>docker run --publish 8000:8000 digit_recognizer</code>
-5. Agora va ao seu navegador e digite na barra de endereço: <code>127.0.0.1:8000</code>
+2. Agora abra a pasta DjangoIA pelo terminal
+3. Digite: <code>python -m venv env</code>, para criar um ambiente virtual para instalar as bibliotecas
+4. Ative o ambiente virtual: <code>source env/bin/activate</code>
+5. Agora digite: <code>pip install -r requirements.txt</code>, para instalar as bibliotecas
+6. E finalmente rode o projeto:<code>python manage.py runserver</code>
 
 ## Licença
 
