@@ -44,7 +44,7 @@ import Spinner from '@/components/Spinner.vue'
             let DataUrl = canvas.toDataURL('image/png')
 
             // Enviar o DataURL(Binário da imagem) para o servidor usando Fetch    
-            const reponse = await fetch('https://digitrecognizer.up.railway.app/PredictDigit', {
+            const reponse = await fetch('/PredictDigit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ import Spinner from '@/components/Spinner.vue'
 
         async GetToken(){
 
-            const response = await fetch('https://digitrecognizer.up.railway.app/get_csrf');
+            const response = await fetch('/get_csrf');
              
             let dado = await response.json();
 
