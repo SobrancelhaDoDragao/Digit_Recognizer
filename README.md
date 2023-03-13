@@ -1,15 +1,25 @@
-<h1 align="center">Digit_Recognizer</h1>
+<h1 align="center">Digit Recognizer</h1>
 
 <h3 align="center">Implementação do desafio digit recognizer em uma aplicação web</h3>
 
 <div align="center">
   
-<img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg" />
-  
+<img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg" /><img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg" /> <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" />  <img width="70px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />
+          
 </div>       
                
 <h4 align="center">Status: em progresso<br>Veja o site online <a href="https://digitrecognizer.up.railway.app/">aqui</a></h4>
 
+## Tópicos
+
+1. [Sobre o projeto](#sobre-o-projeto)
+2. [Como funciona](#como-funciona)
+3. [Tecnologias usadas](#tecnologias-usadas)
+4. [Inteligência artificial](#inteligência-artificial)
+5. [Infraestrutura do projeto/fluxo](#infraestrutura-do-projetofluxo)
+6. [Telas](#telas)
+7. [Instalar o projeto localmente](#instalar-o-projeto-localmente)
+8. [Licença](#licença)
 
 ## Sobre o projeto
 
@@ -19,7 +29,7 @@ A aplicação web consiste em uma área de desenho onde é possível desenhar os
 
 ## Como Funciona
 
-1. Acesse o site e selecione a área de desenho.
+1. Acesse o [site](https://digitrecognizer.up.railway.app/) e selecione a área de desenho.
 2. Desenhe o dígito que deseja reconhecer.
 3. Clique em "Pronto" para que o algoritmo de IA analise o desenho.
 4. O número reconhecido será exibido na tela.
@@ -49,6 +59,28 @@ Escolhi o Random Forest Classifier por sua simplicidade e eficácia. Considerei 
 Primeiramente, o usuário desenha um dígito de 0 a 9 no canvas e envia os dados. Durante o processo de envio, os dados do canvas são convertidos em formato de imagem usando a função <code>toDataURL()</code>. Em seguida, os dados são enviados para a view <code>PredictDigit()</code>, do Django. Essa função converte a imagem para o espaço de cores RGB, remove espaços em branco ao redor do dígito, redimensiona a imagem para 28 x 28 pixels, converte-a em escala de cinza e transforma-a em um array de números. Então, o modelo faz uma previsão com base nos dados do array e retorna um JSON com o dígito previsto.
 
 ## Telas
+
+### Tela de desenho
+
+<img width="60%" src="https://github.com/SobrancelhaDoDragao/Digit_Recognizer/blob/main/digitRecognizerPrint.png"  />
+
+### Tela do predict
+
+<img width="60%" src="https://github.com/SobrancelhaDoDragao/Digit_Recognizer/blob/main/DigitRecognizerPredictPrint.png" />
+
+## Instalar o projeto localmente
+
+### Pré-requisitos
+
+- [Docker instalado](https://docs.docker.com/get-docker/)
+
+### Execute os seguintes comandos
+
+1. Baixe o repositório no seu computador
+2. Agora abra a pasta Digit_Recognizer pelo terminal
+3. Digite: <code>docker build --tag digit_recognizer</code> para criar a docker image
+4. Agora digite: <code>docker run --publish 8000:8000 digit_recognizer</code>
+5. Agora va ao seu navegador e digite na barra de endereço: <code>127.0.0.1:8000</code>
 
 ## Licença
 
