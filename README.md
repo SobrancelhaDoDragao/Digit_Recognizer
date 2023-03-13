@@ -70,7 +70,17 @@ Primeiramente, o usuário desenha um dígito de 0 a 9 no canvas e envia os dados
 
 ## Instalar o projeto localmente
 
-Em construção...
+### Pré-requisitos
+
+- [Docker instalado](https://docs.docker.com/get-docker/)
+
+### Execute os seguintes comandos
+
+1. Baixe o repositório no seu computador
+2. Agora abra a pasta Digit_Recognizer pelo terminal
+3. Digite: <code>docker build --tag digit_recognizer</code> para criar a docker image
+4. Agora digite: <code>docker run --publish 8000:8000 digit_recognizer</code>
+5. Agora va ao seu navegador e digite na barra de endereço: <code>127.0.0.1:8000</code>
 
 ## Licença
 
