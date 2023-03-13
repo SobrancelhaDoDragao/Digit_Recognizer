@@ -11,7 +11,7 @@
 <h4 align="center">Status: em progresso</h4>
 
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ZweBXA)
+[![Deploy on Railway](https://railway.app/button.svg)](https://digitrecognizer.up.railway.app/)
 
 ## Tópicos
 
